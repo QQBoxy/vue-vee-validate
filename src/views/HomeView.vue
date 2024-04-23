@@ -6,6 +6,8 @@ const [email, emailAttrs] = defineField('email');
 const [name, nameAttrs] = defineField('name');
 const [day, dayAttrs] = defineField('day');
 const [agree, agreeAttrs] = defineField('agree');
+const [fruit, fruitAttrs] = defineField('fruit');
+const [drink, drinkAttrs] = defineField('drink');
 
 const handleSubmit = () => {
   console.log("values", values);
@@ -32,8 +34,23 @@ const handleSubmit = () => {
     </div>
     <div>
       <label for="agree">agree</label>
-      <VField name="agree" type="checkbox" v-model="agree" v-bind="agreeAttrs" :value="true" rules="required" />
+      <VField name="agree" type="checkbox" v-model="agree" v-bind="agreeAttrs" :value="true" rules="required"></VField>
       <VErrorMessage name="agree"></VErrorMessage>
+    </div>
+    <div>
+      <label for="fruit">fruit</label>
+      <VField name="fruit" type="checkbox" v-model="fruit" v-bind="fruitAttrs" value="apple" rules="required"></VField>
+      Apple
+      <VField name="fruit" type="checkbox" v-model="fruit" v-bind="fruitAttrs" value="banana" rules="required"></VField>
+      Banana
+      <VErrorMessage name="fruit"></VErrorMessage>
+    </div>
+    <div>
+      <label for="drink">drink</label>
+      <VField name="drink" type="radio" v-model="drink" v-bind="drinkAttrs" value="none" rules="required" /> None
+      <VField name="drink" type="radio" v-model="drink" v-bind="drinkAttrs" value="tea" rules="required" /> Tea
+      <VField name="drink" type="radio" v-model="drink" v-bind="drinkAttrs" value="coffee" rules="required" /> Coffee
+      <VErrorMessage name="drink"></VErrorMessage>
     </div>
     <div>
       <button type="submit">Submit</button>
