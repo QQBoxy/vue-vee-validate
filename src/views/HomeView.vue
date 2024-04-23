@@ -5,6 +5,7 @@ const { values, defineField } = useForm();
 const [email, emailAttrs] = defineField('email');
 const [name, nameAttrs] = defineField('name');
 const [day, dayAttrs] = defineField('day');
+const [agree, agreeAttrs] = defineField('agree');
 
 const handleSubmit = () => {
   console.log("values", values);
@@ -28,6 +29,11 @@ const handleSubmit = () => {
       <label for="day">day</label>
       <VField type="text" name="day" v-model="day" v-bind="dayAttrs" rules="days:10|required"></VField>
       <VErrorMessage name="day"></VErrorMessage>
+    </div>
+    <div>
+      <label for="agree">agree</label>
+      <VField name="agree" type="checkbox" v-model="agree" v-bind="agreeAttrs" :value="true" rules="required" />
+      <VErrorMessage name="agree"></VErrorMessage>
     </div>
     <div>
       <button type="submit">Submit</button>
