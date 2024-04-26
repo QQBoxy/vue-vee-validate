@@ -26,7 +26,8 @@ const handleSubmit = () => {
   <div>
     Login test <button @click="handleLogin">{{ userStore.loggedIn ? 'Logout' : 'Login' }}</button>
   </div>
-  <VForm @submit="handleSubmit">
+  <VForm @submit="handleSubmit" v-slot="{ errors }">
+    <pre>errors: {{ errors }}</pre>
     <div>
       <label for="email">Email</label>
       <VField type="text" name="email" v-model="email" v-bind="emailAttrs" rules="login|email|required"></VField>
