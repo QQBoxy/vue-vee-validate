@@ -18,6 +18,16 @@ const handleLogin = () => {
 
 const handleSubmit = () => {
   console.log("values", values);
+  alert(JSON.stringify(values, null, 2));
+};
+
+const handleFaker = () => {
+  email.value = 'test@qqboxy.com';
+  name.value = 'test';
+  day.value = '9';
+  agree.value = true;
+  fruit.value = ['apple'];
+  drink.value = 'tea';
 };
 
 </script>
@@ -25,6 +35,9 @@ const handleSubmit = () => {
 <template>
   <div>
     Login test <button @click="handleLogin">{{ userStore.loggedIn ? 'Logout' : 'Login' }}</button>
+  </div>
+  <div>
+    Fake values <button @click="handleFaker">Fill in</button>
   </div>
   <VForm @submit="handleSubmit" v-slot="{ errors }">
     <pre>errors: {{ errors }}</pre>
